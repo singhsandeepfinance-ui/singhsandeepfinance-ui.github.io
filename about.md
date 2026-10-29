@@ -2,10 +2,12 @@
 layout: page
 title: About
 permalink: /about/
-intro: PhD research scholar in finance at IIT (ISM) Dhanbad.
+intro: PhD scholar in banking and financial markets, Department of Management Studies, IIT (ISM) Dhanbad.
 ---
 
-I'm Sandeep Singh. I study finance as a PhD research scholar at the Indian Institute of Technology (Indian School of Mines), Dhanbad. Before that I completed my M.Com at Banaras Hindu University and my B.Com at the University of Lucknow.
+I'm Sandeep Singh, a PhD scholar in banking and financial markets in the Department of Management Studies at the Indian Institute of Technology (Indian School of Mines), Dhanbad. Before that I completed my M.Com at Banaras Hindu University and my B.Com at the University of Lucknow.
+
+My papers and profiles: [SSRN]({{ site.contact.ssrn }}) · [ORCID]({{ site.contact.orcid }}) · [ResearchGate]({{ site.contact.researchgate }}) · [LinkedIn]({{ site.contact.linkedin }})
 
 ## What I work on
 

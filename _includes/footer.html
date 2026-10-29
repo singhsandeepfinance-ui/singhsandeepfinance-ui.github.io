@@ -17,6 +17,13 @@
       <a href="{{ '/contact/' | relative_url }}">Contact</a>
       <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
     </nav>
+    <nav class="footer-nav" aria-label="Profiles">
+      {% if site.contact.email != "" %}<a href="mailto:{{ site.contact.email }}">Email</a>{% endif %}
+      {% if site.contact.linkedin != "" %}<a href="{{ site.contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+      {% if site.contact.orcid != "" %}<a href="{{ site.contact.orcid }}" target="_blank" rel="noopener">ORCID</a>{% endif %}
+      {% if site.contact.ssrn != "" %}<a href="{{ site.contact.ssrn }}" target="_blank" rel="noopener">SSRN</a>{% endif %}
+      {% if site.contact.researchgate != "" %}<a href="{{ site.contact.researchgate }}" target="_blank" rel="noopener">ResearchGate</a>{% endif %}
+    </nav>
   </div>
   <div class="wrap footer-base">
     <p>© {{ site.time | date: '%Y' }} {{ site.author.name }}</p>

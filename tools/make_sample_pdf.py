@@ -32,7 +32,7 @@ for i, (col, w) in enumerate([(LAV, 26), (SUN, 22), (STONE, 24), (BLUE, 20)]):
     c.setFillColor(col); c.roundRect(40, H - 44 - i * 8, w, 5, 1.5, stroke=0, fill=1)
 c.setFillColor(white); c.setFont("SansB", 22); c.drawString(78, H - 58, "Compounding and SIP cheat sheet")
 c.setFont("Sans", 10.5); c.setFillColor(HexColor("#C6CEDD"))
-c.drawString(78, H - 78, "Sandeep Singh  |  PhD Research Scholar in Finance, IIT (ISM) Dhanbad")
+c.drawString(78, H - 78, "Sandeep Singh  |  PhD Scholar, Banking & Financial Markets, IIT (ISM) Dhanbad")
 
 y = H - 150
 def heading(text):

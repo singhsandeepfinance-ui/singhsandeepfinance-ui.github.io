@@ -6,13 +6,16 @@
 title: Sandeep Singh
 tagline: Finance, money & research
 description: >-
-  Plain-language writing on personal finance, markets and investing,
-  plus research notes and free PDFs by Sandeep Singh, PhD research
-  scholar in finance at IIT (ISM) Dhanbad.
+  Plain-language writing on personal finance, banking, markets and
+  investing, plus research notes and free PDFs by Sandeep Singh, PhD
+  scholar in banking and financial markets at IIT (ISM) Dhanbad.
 
 author:
   name: Sandeep Singh
-  role: PhD Research Scholar in Finance, IIT (ISM) Dhanbad
+  role: PhD Scholar, Banking & Financial Markets, IIT (ISM) Dhanbad
+  department: Department of Management Studies
+  institution: IIT (ISM) Dhanbad
+  address: Dhanbad, Jharkhand 826004
 
 # Your web address. Replace YOUR-GITHUB-USERNAME with your GitHub username.
 url: "https://singhsandeepfinance-ui.github.io"
@@ -22,11 +25,12 @@ baseurl: ""
 
 # Contact links. Fill in the ones you want to show; leave "" to hide a link.
 contact:
-  email: ""            # e.g. "sandeep@example.com"
-  linkedin: ""         # full link, e.g. "https://www.linkedin.com/in/your-name"
-  google_scholar: ""   # full link to your Google Scholar profile
-  researchgate: ""     # full link
-  orcid: ""            # full link, e.g. "https://orcid.org/0000-0000-0000-0000"
+  email: "singhsandeep.finance@gmail.com"
+  linkedin: "https://www.linkedin.com/in/sandeepsingh-finance"
+  orcid: "https://orcid.org/0009-0005-6386-3342"
+  ssrn: "https://ssrn.com/author=7371044"
+  researchgate: "https://www.researchgate.net/profile/Sandeep-Singh-200"
+  google_scholar: ""   # full link to your Google Scholar profile, when you have one
 
 # ─────────────────────────────────────────────────────────────
 #  Technical settings — you normally never need to change these.
