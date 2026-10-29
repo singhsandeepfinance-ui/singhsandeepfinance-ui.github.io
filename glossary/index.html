@@ -1,0 +1,38 @@
+---
+layout: default
+title: Finance glossary
+description: Plain-language definitions of common finance, banking and investing terms used in India, from alpha to yield to maturity.
+---
+{% assign terms = site.data.glossary | sort: "term" %}
+<header class="page-header">
+  <div class="wrap">
+    <h1 class="page-title">Finance glossary</h1>
+    <p class="page-intro">Short, plain-language definitions of the terms that come up in banking, investing and markets in India.</p>
+  </div>
+</header>
+
+<div class="wrap glossary">
+  <div class="filters">
+    <nav class="az" aria-label="Jump to letter">
+      {% assign last = "" %}
+      {% for t in terms %}{% assign l = t.term | slice: 0 | upcase %}{% if l != last %}<a href="#letter-{{ l }}">{{ l }}</a>{% assign last = l %}{% endif %}{% endfor %}
+    </nav>
+    <label class="search">
+      <span class="visually-hidden">Search the glossary</span>
+      <input type="search" placeholder="Search {{ terms.size }} terms" data-glossary-search>
+    </label>
+  </div>
+
+  <dl class="terms" id="terms">
+    {% assign last = "" %}
+    {% for t in terms %}
+      {% assign l = t.term | slice: 0 | upcase %}
+      {% if l != last %}<div class="letter" id="letter-{{ l }}" data-letter>{{ l }}</div>{% assign last = l %}{% endif %}
+      <div class="term" data-search="{{ t.term | append: ' ' | append: t.definition | downcase | escape }}">
+        <dt>{{ t.term }}</dt>
+        <dd>{{ t.definition }}</dd>
+      </div>
+    {% endfor %}
+  </dl>
+  <p class="empty" data-glossary-empty hidden>No terms match. Try a shorter word.</p>
+</div>

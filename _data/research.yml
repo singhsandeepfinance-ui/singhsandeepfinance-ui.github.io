@@ -1,0 +1,26 @@
+# Research page content.
+#
+# INTERESTS: edit freely. Each has a title and a one-line summary.
+#
+# PAPERS: add one block per paper, newest first. Copy the commented example,
+# remove the # signs, and change the details. Leave a field "" if you don't have it.
+#   status can be: Published, Under review, Working paper, Conference paper, Preprint
+
+interests:
+  - title: Portfolio optimization
+    summary: Building portfolios that balance return and risk, using models from operations research.
+  - title: Banking and financial markets
+    summary: How banks, regulation and market structure shape the cost and flow of capital.
+  - title: Cryptocurrency markets
+    summary: How digital-asset markets behave, and what moves prices and liquidity.
+  - title: Quantitative methods in finance
+    summary: Statistics and econometrics for testing ideas against market data.
+
+papers:
+#  - title: "Title of your paper"
+#    authors: "Sandeep Singh, Co-author Name"
+#    venue: "Journal or conference name"
+#    year: 2026
+#    status: Working paper
+#    link: "https://ssrn.com/abstract=0000000"
+#    pdf: ""            # optional: file name in the pdfs folder, e.g. my-paper.pdf

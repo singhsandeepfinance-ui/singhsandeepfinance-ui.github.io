@@ -2,10 +2,12 @@
 
 A free, fast website for articles and PDFs on finance and money, hosted on GitHub Pages.
 
-- **Blog** with topics (personal finance, markets, research notes, crypto & fintech), search and share buttons
+- **Blog** with topics, search, share buttons, a contents list, reading progress and related articles
+- **Research** page with interests, papers and academic profiles
+- **Money calculators**: SIP with step-up, lump sum, loan EMI, goal planner and inflation, with charts and tables
+- **Finance glossary** with A–Z and search
 - **PDF library** with read-online and download buttons
-- **SIP calculator** on the home page
-- About and Contact pages, RSS feed, sitemap and Google-friendly page titles
+- About and Contact pages, light and dark themes, RSS feed, sitemap, Google-friendly titles and a share picture for WhatsApp/LinkedIn
 
 Day-to-day instructions are in **HOW-TO-POST.md**.
 
@@ -29,9 +31,10 @@ Buy a domain (for example `sandeepsingh.in`) from any registrar, then add it und
 ```
 _posts/        your articles (one Markdown file each)
 pdfs/          your PDF files
-_data/         library.yml (PDF list) and topics.yml (blog topics and colours)
+_data/         library.yml (PDFs), research.yml (papers), glossary.yml (terms), topics.yml (blog topics)
 _config.yml    site title, links and settings
 about.md       About page        contact.md   Contact page
+research/ calculators/ glossary/ blog/ library/   the other pages
 _layouts/ _includes/ assets/   design files (no need to edit)
 tools/         helper scripts used while building the site (not published)
 ```

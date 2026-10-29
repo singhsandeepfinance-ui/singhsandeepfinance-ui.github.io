@@ -1,0 +1,6 @@
+{% assign rt = site.data.topics | where: "slug", include.post.topic | first %}
+<li class="related-card" {% if rt %}style="--topic: {{ rt.color }}"{% endif %}>
+  {% if rt %}<span class="topic-chip" style="--topic: {{ rt.color }}">{{ rt.name }}</span>{% endif %}
+  <h3><a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>
+  <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%d %b %Y' }}</time>
+</li>

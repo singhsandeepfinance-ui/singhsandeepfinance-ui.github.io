@@ -4,6 +4,7 @@ layout: default
 {% assign t = site.data.topics | where: "slug", page.topic | first %}
 {% assign words = content | strip_html | number_of_words %}
 {% assign minutes = words | divided_by: 200 | plus: 1 %}
+<div class="read-progress" aria-hidden="true"><span></span></div>
 <article class="post" {% if t %}style="--topic: {{ t.color }}"{% endif %}>
   <header class="post-header">
     <div class="wrap wrap-read">
@@ -19,6 +20,11 @@ layout: default
   </header>
 
   <div class="wrap wrap-read">
+    <details class="toc" hidden>
+      <summary>In this article</summary>
+      <ol></ol>
+    </details>
+
     <div class="prose">
       {{ content }}
     </div>
@@ -52,13 +58,32 @@ layout: default
       </div>
     </section>
 
-    <nav class="post-pager" aria-label="More articles">
-      {% if page.previous %}
-      <a class="pager-prev" href="{{ page.previous.url | relative_url }}"><span>Older</span>{{ page.previous.title }}</a>
-      {% endif %}
-      {% if page.next %}
-      <a class="pager-next" href="{{ page.next.url | relative_url }}"><span>Newer</span>{{ page.next.title }}</a>
-      {% endif %}
-    </nav>
+    <aside class="author-box">
+      {% include avatar.html size="small" %}
+      <div>
+        <p class="author-name">{{ site.author.name }}</p>
+        <p class="author-role">PhD Scholar, Banking &amp; Financial Markets, {{ site.author.department }}, {{ site.author.institution }}</p>
+        <p class="author-links">
+          <a href="{{ '/about/' | relative_url }}">About me</a>
+          {% if site.contact.linkedin != "" %}<a href="{{ site.contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+          {% if site.contact.ssrn != "" %}<a href="{{ site.contact.ssrn }}" target="_blank" rel="noopener">SSRN</a>{% endif %}
+        </p>
+      </div>
+    </aside>
   </div>
+
+  {% assign same = site.posts | where: "topic", page.topic %}
+  {% assign shown = 0 %}
+  {% capture related %}
+    {% for p in same %}{% if p.url != page.url and shown < 3 %}{% include related-card.html post=p %}{% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
+    {% for p in site.posts %}{% if p.url != page.url and p.topic != page.topic and shown < 3 %}{% include related-card.html post=p %}{% assign shown = shown | plus: 1 %}{% endif %}{% endfor %}
+  {% endcapture %}
+  {% if shown > 0 %}
+  <section class="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <h2 class="section-title" id="related-h">Keep reading</h2>
+      <ul class="related-grid">{{ related }}</ul>
+    </div>
+  </section>
+  {% endif %}
 </article>

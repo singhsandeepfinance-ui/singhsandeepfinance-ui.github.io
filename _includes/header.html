@@ -7,17 +7,25 @@
         <span class="brand-tag">{{ site.tagline }}</span>
       </span>
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle-bars" aria-hidden="true"></span>
-      <span class="visually-hidden">Menu</span>
-    </button>
-    <nav id="site-nav" class="site-nav" aria-label="Main">
-      {% assign url_parts = page.url | split: '/' %}
-      {% assign nav_section = url_parts[1] %}
-      <a href="{{ '/blog/' | relative_url }}" {% if nav_section == 'blog' %}aria-current="page"{% endif %}>Blog</a>
-      <a href="{{ '/library/' | relative_url }}" {% if nav_section == 'library' %}aria-current="page"{% endif %}>PDF library</a>
-      <a href="{{ '/about/' | relative_url }}" {% if nav_section == 'about' %}aria-current="page"{% endif %}>About</a>
-      <a href="{{ '/contact/' | relative_url }}" {% if nav_section == 'contact' %}aria-current="page"{% endif %}>Contact</a>
-    </nav>
+    <div class="header-actions">
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        {% assign url_parts = page.url | split: '/' %}
+        {% assign nav_section = url_parts[1] %}
+        <a href="{{ '/blog/' | relative_url }}" {% if nav_section == 'blog' %}aria-current="page"{% endif %}>Blog</a>
+        <a href="{{ '/research/' | relative_url }}" {% if nav_section == 'research' %}aria-current="page"{% endif %}>Research</a>
+        <a href="{{ '/calculators/' | relative_url }}" {% if nav_section == 'calculators' %}aria-current="page"{% endif %}>Calculators</a>
+        <a href="{{ '/library/' | relative_url }}" {% if nav_section == 'library' %}aria-current="page"{% endif %}>PDF library</a>
+        <a href="{{ '/about/' | relative_url }}" {% if nav_section == 'about' %}aria-current="page"{% endif %}>About</a>
+        <a href="{{ '/contact/' | relative_url }}" {% if nav_section == 'contact' %}aria-current="page"{% endif %}>Contact</a>
+      </nav>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
   </div>
 </header>

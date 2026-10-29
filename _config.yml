@@ -16,8 +16,11 @@ author:
   department: Department of Management Studies
   institution: IIT (ISM) Dhanbad
   address: Dhanbad, Jharkhand 826004
+  # Your photo: put a square image (e.g. 600×600) at assets/img/profile.jpg,
+  # then change the line below to:  photo: /assets/img/profile.jpg
+  photo: ""
 
-# Your web address. Replace YOUR-GITHUB-USERNAME with your GitHub username.
+# Your web address.
 url: "https://singhsandeepfinance-ui.github.io"
 # Leave baseurl empty if your repository is named YOUR-GITHUB-USERNAME.github.io
 # If your repository has another name (e.g. "finance-site"), use: baseurl: "/finance-site"
@@ -49,12 +52,26 @@ plugins:
   - jekyll-sitemap
 feed:
   path: feed.xml
+# Picture shown when a page is shared on WhatsApp, LinkedIn or X.
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/share-card.png
   - scope:
       path: ""
       type: posts
     values:
       layout: post
+twitter:
+  card: summary_large_image
+social:
+  name: Sandeep Singh
+  links:
+    - https://www.linkedin.com/in/sandeepsingh-finance
+    - https://orcid.org/0009-0005-6386-3342
+    - https://ssrn.com/author=7371044
+    - https://www.researchgate.net/profile/Sandeep-Singh-200
 exclude:
   - README.md
   - HOW-TO-POST.md

@@ -1,0 +1,77 @@
+---
+layout: default
+title: Research
+description: Research interests, papers and academic profiles of Sandeep Singh, PhD scholar in banking and financial markets at IIT (ISM) Dhanbad.
+---
+{% assign r = site.data.research %}
+{% assign c = site.contact %}
+<header class="page-header">
+  <div class="wrap">
+    <h1 class="page-title">Research</h1>
+    <p class="page-intro">I'm a PhD scholar in banking and financial markets in the {{ site.author.department }}, {{ site.author.institution }}. My work sits where finance theory meets data and optimization.</p>
+  </div>
+</header>
+
+<div class="wrap research">
+  <section class="block" aria-labelledby="interests-h">
+    <h2 class="block-title" id="interests-h">Research interests</h2>
+    <ul class="interest-grid">
+      {% for item in r.interests %}
+      <li class="interest">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.summary }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="block" aria-labelledby="papers-h">
+    <h2 class="block-title" id="papers-h">Papers</h2>
+    {% if r.papers and r.papers.size > 0 %}
+    <ol class="paper-list">
+      {% for p in r.papers %}
+      <li class="paper">
+        <p class="paper-status">{{ p.status }}{% if p.year %} <span>{{ p.year }}</span>{% endif %}</p>
+        <h3 class="paper-title">{% if p.link != "" and p.link %}<a href="{{ p.link }}" target="_blank" rel="noopener">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
+        <p class="paper-meta">{{ p.authors }}{% if p.venue != "" and p.venue %}. <em>{{ p.venue }}</em>{% endif %}</p>
+        {% if p.pdf != "" and p.pdf %}{% capture paper_pdf %}/pdfs/{{ p.pdf }}{% endcapture %}<p class="paper-links"><a href="{{ paper_pdf | relative_url }}" target="_blank" rel="noopener">PDF</a></p>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <div class="empty-card">
+      <p>My papers and working papers are listed on my research profiles while this list is being built.</p>
+      <p class="btn-row">
+        {% if c.ssrn != "" %}<a class="btn btn-ink" href="{{ c.ssrn }}" target="_blank" rel="noopener">Papers on SSRN</a>{% endif %}
+        {% if c.researchgate != "" %}<a class="btn btn-quiet" href="{{ c.researchgate }}" target="_blank" rel="noopener">ResearchGate</a>{% endif %}
+      </p>
+    </div>
+    {% endif %}
+  </section>
+
+  <section class="block" aria-labelledby="profiles-h">
+    <h2 class="block-title" id="profiles-h">Academic profiles</h2>
+    <ul class="profile-grid">
+      {% if c.ssrn != "" %}<li><a href="{{ c.ssrn }}" target="_blank" rel="noopener"><strong>SSRN</strong><span>Papers and downloads</span></a></li>{% endif %}
+      {% if c.orcid != "" %}<li><a href="{{ c.orcid }}" target="_blank" rel="noopener"><strong>ORCID</strong><span>0009-0005-6386-3342</span></a></li>{% endif %}
+      {% if c.researchgate != "" %}<li><a href="{{ c.researchgate }}" target="_blank" rel="noopener"><strong>ResearchGate</strong><span>Publications and network</span></a></li>{% endif %}
+      {% if c.google_scholar != "" %}<li><a href="{{ c.google_scholar }}" target="_blank" rel="noopener"><strong>Google Scholar</strong><span>Citations</span></a></li>{% endif %}
+      {% if c.linkedin != "" %}<li><a href="{{ c.linkedin }}" target="_blank" rel="noopener"><strong>LinkedIn</strong><span>Professional profile</span></a></li>{% endif %}
+    </ul>
+  </section>
+
+  <section class="block" aria-labelledby="notes-h">
+    <div class="section-head">
+      <h2 class="block-title" id="notes-h">Research notes on the blog</h2>
+      <a class="section-link" href="{{ '/blog/' | relative_url }}?topic=research">All research notes</a>
+    </div>
+    {% assign notes = site.posts | where: "topic", "research" %}
+    {% if notes.size > 0 %}
+    <ul class="post-list">
+      {% for post in notes limit: 3 %}{% include post-row.html post=post %}{% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty">Research notes will appear here.</p>
+    {% endif %}
+  </section>
+</div>

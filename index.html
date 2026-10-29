@@ -10,10 +10,28 @@ body_class: home
       <p class="hero-lede">I'm {{ site.author.name }}, a PhD scholar in banking and financial markets at IIT (ISM) Dhanbad. I write about saving, investing and how markets really work, and share my notes and papers as free PDFs.</p>
       <div class="hero-actions">
         <a class="btn btn-sun" href="{{ '/blog/' | relative_url }}">Read the blog</a>
-        <a class="btn btn-outline-light" href="{{ '/library/' | relative_url }}">Browse the PDF library</a>
+        <a class="btn btn-outline-light" href="{{ '/calculators/' | relative_url }}">Try the calculators</a>
       </div>
     </div>
     {% include sip-calculator.html %}
+  </div>
+</section>
+
+<section class="topics-band" aria-labelledby="topics-h">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="topics-h">Explore by topic</h2>
+    <ul class="topic-tiles">
+      {% for t in site.data.topics %}
+      {% assign count = site.posts | where: "topic", t.slug | size %}
+      <li class="topic-tile" style="--topic: {{ t.color }}">
+        <a href="{{ '/blog/' | relative_url }}?topic={{ t.slug }}">
+          <span class="topic-tile-name">{{ t.name }}</span>
+          <span class="topic-tile-desc">{{ t.description }}</span>
+          <span class="topic-tile-count">{% if count == 1 %}1 article{% elsif count > 1 %}{{ count }} articles{% else %}Coming soon{% endif %}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 </section>
 
@@ -48,6 +66,21 @@ body_class: home
   </div>
 </section>
 
+<section class="section section-ink" aria-labelledby="tools-h">
+  <div class="wrap tools-strip">
+    <div>
+      <h2 class="section-title" id="tools-h">Free money calculators</h2>
+      <p class="tools-text">Plan with real numbers in rupees, with year-by-year charts and tables.</p>
+    </div>
+    <ul class="tool-links">
+      <li><a href="{{ '/calculators/' | relative_url }}#sip"><strong>SIP with step-up</strong><span>What monthly investing can grow to</span></a></li>
+      <li><a href="{{ '/calculators/' | relative_url }}#emi"><strong>Loan EMI</strong><span>Your EMI and the true cost of interest</span></a></li>
+      <li><a href="{{ '/calculators/' | relative_url }}#goal"><strong>Goal planner</strong><span>How much to save each month for a goal</span></a></li>
+      <li><a href="{{ '/calculators/' | relative_url }}#infl"><strong>Inflation</strong><span>What prices could look like in the future</span></a></li>
+    </ul>
+  </div>
+</section>
+
 <section class="section section-tint">
   <div class="wrap">
     <div class="section-head">
@@ -64,10 +97,16 @@ body_class: home
 
 <section class="section">
   <div class="wrap about-strip">
-    <div>
-      <h2 class="section-title">About me</h2>
-      <p class="about-strip-text">My research looks at how investors build portfolios and how new markets such as crypto behave. On this site I turn that work into plain language that students, professionals and everyday investors can use.</p>
-      <a class="btn btn-ink" href="{{ '/about/' | relative_url }}">Read more about me</a>
+    <div class="about-strip-main">
+      {% include avatar.html size="medium" %}
+      <div>
+        <h2 class="section-title">About me</h2>
+        <p class="about-strip-text">My research looks at how investors build portfolios, how banks and financial markets work, and how new markets such as crypto behave. On this site I turn that work into plain language that students, professionals and everyday investors can use.</p>
+        <p class="btn-row">
+          <a class="btn btn-ink" href="{{ '/about/' | relative_url }}">More about me</a>
+          <a class="btn btn-quiet" href="{{ '/research/' | relative_url }}">My research</a>
+        </p>
+      </div>
     </div>
     <dl class="credentials">
       <div><dt>PhD, Banking &amp; Financial Markets</dt><dd>Department of Management Studies, IIT (ISM) Dhanbad (in progress)</dd></div>

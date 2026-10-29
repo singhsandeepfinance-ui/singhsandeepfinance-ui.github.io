@@ -1,0 +1,9 @@
+<div class="calc-field" data-unit="{{ include.unit }}">
+  <label for="{{ include.id }}-n">{{ include.label }}</label>
+  <span class="calc-number">
+    {% if include.unit == "rupee" %}<span class="affix" aria-hidden="true">₹</span>{% endif %}
+    <input id="{{ include.id }}-n" type="number" inputmode="decimal" min="{{ include.min }}" max="{{ include.max }}" step="{{ include.step }}" value="{{ include.value }}" data-pair="{{ include.id }}">
+    {% if include.unit == "percent" %}<span class="affix" aria-hidden="true">%</span>{% elsif include.unit == "years" %}<span class="affix" aria-hidden="true">yrs</span>{% endif %}
+  </span>
+  <input id="{{ include.id }}" type="range" min="{{ include.min }}" max="{{ include.max }}" step="{{ include.step }}" value="{{ include.value }}" aria-label="{{ include.label }}" data-pair="{{ include.id }}">
+</div>

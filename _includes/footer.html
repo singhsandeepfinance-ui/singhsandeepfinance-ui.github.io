@@ -10,22 +10,30 @@
       </a>
       <p class="disclaimer">Everything on this site is for education and information only. It is not investment, tax or legal advice. Please talk to a SEBI-registered investment adviser before making investment decisions.</p>
     </div>
-    <nav class="footer-nav" aria-label="Footer">
+    <nav class="footer-nav" aria-label="Site">
+      <p class="footer-head">Read</p>
       <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/research/' | relative_url }}">Research</a>
       <a href="{{ '/library/' | relative_url }}">PDF library</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      <a href="{{ '/glossary/' | relative_url }}">Finance glossary</a>
       <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
     </nav>
+    <nav class="footer-nav" aria-label="Tools and contact">
+      <p class="footer-head">Use</p>
+      <a href="{{ '/calculators/' | relative_url }}">Money calculators</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+    </nav>
     <nav class="footer-nav" aria-label="Profiles">
-      {% if site.contact.email != "" %}<a href="mailto:{{ site.contact.email }}">Email</a>{% endif %}
+      <p class="footer-head">Follow</p>
       {% if site.contact.linkedin != "" %}<a href="{{ site.contact.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
-      {% if site.contact.orcid != "" %}<a href="{{ site.contact.orcid }}" target="_blank" rel="noopener">ORCID</a>{% endif %}
       {% if site.contact.ssrn != "" %}<a href="{{ site.contact.ssrn }}" target="_blank" rel="noopener">SSRN</a>{% endif %}
+      {% if site.contact.orcid != "" %}<a href="{{ site.contact.orcid }}" target="_blank" rel="noopener">ORCID</a>{% endif %}
       {% if site.contact.researchgate != "" %}<a href="{{ site.contact.researchgate }}" target="_blank" rel="noopener">ResearchGate</a>{% endif %}
+      {% if site.contact.email != "" %}<a href="mailto:{{ site.contact.email }}">Email</a>{% endif %}
     </nav>
   </div>
   <div class="wrap footer-base">
-    <p>© {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+    <p>© {{ site.time | date: '%Y' }} {{ site.author.name }}. Articles may be shared with credit and a link back.</p>
   </div>
 </footer>

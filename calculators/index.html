@@ -1,0 +1,123 @@
+---
+layout: default
+title: Money calculators
+description: Free SIP, step-up SIP, lump-sum, EMI, goal and inflation calculators in rupees, with year-by-year charts and tables.
+scripts: [calculators]
+---
+<header class="page-header">
+  <div class="wrap">
+    <h1 class="page-title">Money calculators</h1>
+    <p class="page-intro">Work out what an investment could grow to, what a loan really costs, and how much you need to save for a goal. Everything is calculated in your browser; nothing is stored.</p>
+  </div>
+</header>
+
+<div class="wrap calc-page">
+  <div class="calc-tabs" role="tablist" aria-label="Choose a calculator">
+    <button type="button" role="tab" id="tab-sip" aria-controls="panel-sip" aria-selected="true">SIP</button>
+    <button type="button" role="tab" id="tab-lump" aria-controls="panel-lump" aria-selected="false" tabindex="-1">Lump sum</button>
+    <button type="button" role="tab" id="tab-emi" aria-controls="panel-emi" aria-selected="false" tabindex="-1">Loan EMI</button>
+    <button type="button" role="tab" id="tab-goal" aria-controls="panel-goal" aria-selected="false" tabindex="-1">Goal planner</button>
+    <button type="button" role="tab" id="tab-infl" aria-controls="panel-infl" aria-selected="false" tabindex="-1">Inflation</button>
+  </div>
+
+  <!-- SIP -->
+  <section class="calc" role="tabpanel" id="panel-sip" aria-labelledby="tab-sip" data-calc="sip">
+    <div class="calc-inputs">
+      <h2 class="calc-title">SIP with yearly step-up</h2>
+      <p class="calc-help">Invest a fixed amount every month, and optionally raise it each year as your income grows.</p>
+      {% include calc-field.html id="sip-p" label="Monthly investment" min="500" max="200000" step="500" value="10000" unit="rupee" %}
+      {% include calc-field.html id="sip-y" label="Years" min="1" max="40" step="1" value="20" unit="years" %}
+      {% include calc-field.html id="sip-r" label="Expected yearly return" min="1" max="20" step="0.5" value="12" unit="percent" %}
+      {% include calc-field.html id="sip-s" label="Increase SIP each year by" min="0" max="20" step="1" value="0" unit="percent" %}
+    </div>
+    <div class="calc-output">
+      <div class="result-grid">
+        <div class="result result-main"><span>Value at the end</span><strong data-out="sip-total">–</strong></div>
+        <div class="result"><span>You invest</span><strong data-out="sip-invested">–</strong></div>
+        <div class="result"><span>Growth</span><strong data-out="sip-growth">–</strong></div>
+      </div>
+      {% include calc-chart.html id="sip" s1="You invest" s2="Growth" %}
+    </div>
+  </section>
+
+  <!-- Lump sum -->
+  <section class="calc" role="tabpanel" id="panel-lump" aria-labelledby="tab-lump" data-calc="lump" hidden>
+    <div class="calc-inputs">
+      <h2 class="calc-title">One-time investment</h2>
+      <p class="calc-help">Invest a single amount today and let it compound once a year.</p>
+      {% include calc-field.html id="lump-p" label="Amount invested" min="10000" max="10000000" step="10000" value="500000" unit="rupee" %}
+      {% include calc-field.html id="lump-y" label="Years" min="1" max="40" step="1" value="15" unit="years" %}
+      {% include calc-field.html id="lump-r" label="Expected yearly return" min="1" max="20" step="0.5" value="10" unit="percent" %}
+    </div>
+    <div class="calc-output">
+      <div class="result-grid">
+        <div class="result result-main"><span>Value at the end</span><strong data-out="lump-total">–</strong></div>
+        <div class="result"><span>You invest</span><strong data-out="lump-invested">–</strong></div>
+        <div class="result"><span>Growth</span><strong data-out="lump-growth">–</strong></div>
+      </div>
+      {% include calc-chart.html id="lump" s1="You invest" s2="Growth" %}
+    </div>
+  </section>
+
+  <!-- EMI -->
+  <section class="calc" role="tabpanel" id="panel-emi" aria-labelledby="tab-emi" data-calc="emi" hidden>
+    <div class="calc-inputs">
+      <h2 class="calc-title">Loan EMI</h2>
+      <p class="calc-help">For home, car, education or personal loans with a fixed interest rate.</p>
+      {% include calc-field.html id="emi-p" label="Loan amount" min="100000" max="50000000" step="50000" value="3000000" unit="rupee" %}
+      {% include calc-field.html id="emi-r" label="Interest rate (yearly)" min="5" max="20" step="0.05" value="8.5" unit="percent" %}
+      {% include calc-field.html id="emi-y" label="Tenure" min="1" max="30" step="1" value="20" unit="years" %}
+    </div>
+    <div class="calc-output">
+      <div class="result-grid">
+        <div class="result result-main"><span>Monthly EMI</span><strong data-out="emi-emi">–</strong></div>
+        <div class="result"><span>Total interest</span><strong data-out="emi-interest">–</strong></div>
+        <div class="result"><span>Total you repay</span><strong data-out="emi-total">–</strong></div>
+      </div>
+      {% include calc-chart.html id="emi" s1="Principal repaid" s2="Interest paid" caption="How each year's EMIs split between principal and interest" %}
+    </div>
+  </section>
+
+  <!-- Goal -->
+  <section class="calc" role="tabpanel" id="panel-goal" aria-labelledby="tab-goal" data-calc="goal" hidden>
+    <div class="calc-inputs">
+      <h2 class="calc-title">Goal planner</h2>
+      <p class="calc-help">For a child's education, a house down payment or retirement: enter what the goal costs in today's rupees.</p>
+      {% include calc-field.html id="goal-c" label="Goal cost today" min="100000" max="50000000" step="50000" value="2500000" unit="rupee" %}
+      {% include calc-field.html id="goal-y" label="Years until the goal" min="1" max="40" step="1" value="15" unit="years" %}
+      {% include calc-field.html id="goal-i" label="Inflation (yearly)" min="0" max="12" step="0.5" value="6" unit="percent" %}
+      {% include calc-field.html id="goal-r" label="Expected yearly return" min="1" max="20" step="0.5" value="12" unit="percent" %}
+    </div>
+    <div class="calc-output">
+      <div class="result-grid">
+        <div class="result result-main"><span>Monthly SIP needed</span><strong data-out="goal-sip">–</strong></div>
+        <div class="result"><span>Goal cost in the future</span><strong data-out="goal-future">–</strong></div>
+        <div class="result"><span>Or invest once, today</span><strong data-out="goal-lump">–</strong></div>
+      </div>
+      <p class="calc-explain" data-out="goal-explain"></p>
+    </div>
+  </section>
+
+  <!-- Inflation -->
+  <section class="calc" role="tabpanel" id="panel-infl" aria-labelledby="tab-infl" data-calc="infl" hidden>
+    <div class="calc-inputs">
+      <h2 class="calc-title">Inflation</h2>
+      <p class="calc-help">See what today's prices could become, and what a future sum is worth in today's money.</p>
+      {% include calc-field.html id="infl-a" label="Amount today" min="1000" max="10000000" step="1000" value="100000" unit="rupee" %}
+      {% include calc-field.html id="infl-y" label="Years" min="1" max="40" step="1" value="20" unit="years" %}
+      {% include calc-field.html id="infl-i" label="Inflation (yearly)" min="0" max="12" step="0.5" value="6" unit="percent" %}
+    </div>
+    <div class="calc-output">
+      <div class="result-grid">
+        <div class="result result-main"><span>Future cost of the same things</span><strong data-out="infl-future">–</strong></div>
+        <div class="result"><span>Buying power left of this amount</span><strong data-out="infl-power">–</strong></div>
+        <div class="result"><span>Prices multiply by</span><strong data-out="infl-mult">–</strong></div>
+      </div>
+      <p class="calc-explain" data-out="infl-explain"></p>
+    </div>
+  </section>
+
+  <aside class="calc-note">
+    <p>These calculators are illustrations that assume steady returns and rates. Real returns vary from year to year and are not guaranteed, and taxes and fees are not included. They are not investment advice. New to a term? See the <a href="{{ '/glossary/' | relative_url }}">finance glossary</a>.</p>
+  </aside>
+</div>

@@ -1,0 +1,15 @@
+<figure class="chart" data-chart="{{ include.id }}">
+  <figcaption class="chart-head">
+    <span class="chart-title">{{ include.caption | default: "Year by year" }}</span>
+    <span class="chart-legend">
+      <span><i class="key key-s1"></i>{{ include.s1 }}</span>
+      <span><i class="key key-s2"></i>{{ include.s2 }}</span>
+    </span>
+  </figcaption>
+  <div class="chart-plot" data-plot></div>
+  <div class="chart-tip" role="status" hidden></div>
+  <details class="chart-table">
+    <summary>Show year-by-year table</summary>
+    <div class="table-scroll"><table data-table><thead><tr><th scope="col">Year</th><th scope="col">{{ include.s1 }}</th><th scope="col">{{ include.s2 }}</th><th scope="col">Total</th></tr></thead><tbody></tbody></table></div>
+  </details>
+</figure>

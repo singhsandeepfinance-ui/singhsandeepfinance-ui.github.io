@@ -1,0 +1,149 @@
+# Finance glossary. Add a term by copying a block. Order does not matter:
+# the page sorts terms alphabetically by itself.
+
+- term: Alpha
+  definition: The return an investment earns above what its level of market risk would predict. A positive alpha suggests skill or an edge; a negative alpha means it lagged its benchmark after adjusting for risk.
+
+- term: Asset allocation
+  definition: How you divide money between asset classes such as equity, debt, gold and cash. It usually matters more for long-run results than which individual stocks or funds you pick.
+
+- term: Basel III
+  definition: A global set of banking rules on how much capital and liquidity banks must hold, introduced after the 2008 financial crisis. The RBI applies it to Indian banks.
+
+- term: Beta
+  definition: How much a stock tends to move when the whole market moves. A beta of 1.2 means it has historically risen or fallen about 20% more than the market.
+
+- term: Bond
+  definition: A loan you give to a government or company. In return you receive regular interest (the coupon) and get the face value back when the bond matures.
+
+- term: CAGR
+  definition: Compound annual growth rate. The steady yearly rate that would take an investment from its starting value to its ending value, smoothing out the ups and downs in between.
+
+- term: Compounding
+  definition: Earning returns on your past returns as well as on the money you put in. Over long periods it makes growth accelerate, which is why starting early matters.
+
+- term: Correlation
+  definition: A number from −1 to +1 showing how closely two investments move together. Combining assets with low correlation reduces a portfolio's overall risk.
+
+- term: Coupon
+  definition: The fixed interest a bond pays, stated as a percentage of its face value. A ₹1,000 bond with an 8% coupon pays ₹80 a year.
+
+- term: CPI inflation
+  definition: The rise in the Consumer Price Index, which tracks the prices of a basket of household goods and services. It is the main inflation measure the RBI targets.
+
+- term: Credit rating
+  definition: An agency's opinion of how likely a borrower is to repay on time. In India, agencies such as CRISIL, ICRA and CARE rate bonds and companies, from AAA (safest) downwards.
+
+- term: CRR
+  definition: Cash reserve ratio. The share of deposits a bank must keep with the RBI as cash. Raising it leaves banks less money to lend.
+
+- term: Debt fund
+  definition: A mutual fund that invests in bonds, treasury bills and other fixed-income securities. It is usually less volatile than an equity fund but is not risk-free.
+
+- term: Diversification
+  definition: Spreading money across many investments so that one bad result does less damage. It lowers risk most when the investments do not move together.
+
+- term: Dividend yield
+  definition: A company's yearly dividend per share divided by its share price. A ₹10 dividend on a ₹500 share is a 2% yield.
+
+- term: Duration
+  definition: A measure of how sensitive a bond's price is to changes in interest rates. The longer the duration, the more the price falls when rates rise.
+
+- term: Efficient frontier
+  definition: The set of portfolios that offer the highest expected return for each level of risk. It comes from Harry Markowitz's portfolio theory.
+
+- term: ELSS
+  definition: Equity-linked savings scheme. An equity mutual fund that qualifies for a tax deduction under the old tax regime and has a three-year lock-in.
+
+- term: EPS
+  definition: Earnings per share. A company's net profit divided by its number of shares. It is the "E" in the P/E ratio.
+
+- term: ETF
+  definition: Exchange-traded fund. A fund, often tracking an index, whose units trade on the stock exchange like shares, at prices that change through the day.
+
+- term: Exit load
+  definition: A fee some mutual funds charge if you redeem units before a set period. It discourages short-term withdrawals.
+
+- term: Expense ratio
+  definition: The yearly fee a mutual fund charges, as a percentage of your investment. It is deducted from the fund's value, so a lower ratio leaves more return for you.
+
+- term: Index fund
+  definition: A fund that simply copies a market index such as the Nifty 50 instead of picking stocks. It usually has low costs.
+
+- term: Inflation
+  definition: The general rise in prices over time, which reduces what each rupee can buy. Investments need to beat inflation to grow your real wealth.
+
+- term: IPO
+  definition: Initial public offering. The first time a company sells its shares to the public and lists on a stock exchange.
+
+- term: Liquidity
+  definition: How quickly and cheaply an asset can be turned into cash without moving its price. Large-company shares are highly liquid; property is not.
+
+- term: Market capitalisation
+  definition: A company's share price multiplied by its number of shares. It is used to group companies into large-cap, mid-cap and small-cap.
+
+- term: Mutual fund
+  definition: A pool of money from many investors, managed by a professional fund manager and regulated by SEBI. Each investor owns units in proportion to their investment.
+
+- term: NAV
+  definition: Net asset value. The value of one unit of a mutual fund, worked out each business day from the market value of everything the fund holds.
+
+- term: Nifty 50
+  definition: An index of 50 large, actively traded companies on the National Stock Exchange (NSE). It is the most widely used benchmark for Indian equities.
+
+- term: NPA
+  definition: Non-performing asset. A bank loan on which interest or principal has been overdue for more than 90 days.
+
+- term: NPS
+  definition: National Pension System. A government-backed retirement scheme where contributions are invested in equity and debt until retirement.
+
+- term: P/B ratio
+  definition: Price-to-book ratio. A company's share price divided by its book value (assets minus liabilities) per share. It is widely used to value banks.
+
+- term: P/E ratio
+  definition: Price-to-earnings ratio. The share price divided by earnings per share, showing how many rupees investors pay for each rupee of yearly profit.
+
+- term: PPF
+  definition: Public Provident Fund. A government savings scheme with a 15-year term and an interest rate the government sets each quarter.
+
+- term: Real return
+  definition: Your return after subtracting inflation. A 10% return with 6% inflation is roughly a 4% real return.
+
+- term: Rebalancing
+  definition: Bringing a portfolio back to its target mix, for example 60% equity and 40% debt, after market moves have pushed it away.
+
+- term: Repo rate
+  definition: The interest rate at which the RBI lends short-term money to banks. Changes in it ripple through to loan and deposit rates across the economy.
+
+- term: Rupee cost averaging
+  definition: Investing a fixed amount at regular intervals, as in a SIP, so you buy more units when prices are low and fewer when they are high.
+
+- term: SEBI
+  definition: Securities and Exchange Board of India. The regulator for stock markets, mutual funds and investment advisers in India.
+
+- term: Sensex
+  definition: An index of 30 large companies listed on the BSE (Bombay Stock Exchange). It is India's oldest stock-market index.
+
+- term: Sharpe ratio
+  definition: Return above the risk-free rate divided by the standard deviation of returns. It shows how much extra return you earned for each unit of risk taken.
+
+- term: SIP
+  definition: Systematic investment plan. Investing a fixed amount in a mutual fund at regular intervals, usually monthly.
+
+- term: SLR
+  definition: Statutory liquidity ratio. The share of deposits a bank must hold in safe, liquid assets such as government securities.
+
+- term: Standard deviation
+  definition: A measure of how widely returns swing around their average. In finance it is the most common measure of risk, or volatility.
+
+- term: STP
+  definition: Systematic transfer plan. Moving a fixed amount at regular intervals from one mutual fund to another, often from a debt fund to an equity fund.
+
+- term: SWP
+  definition: Systematic withdrawal plan. Withdrawing a fixed amount from a mutual fund at regular intervals, often used for income in retirement.
+
+- term: XIRR
+  definition: Extended internal rate of return. The yearly return on investments made at different dates, such as SIP instalments. It is the right way to measure SIP returns.
+
+- term: Yield to maturity
+  definition: The total yearly return you would earn on a bond if you bought it at today's price and held it until it matures, receiving every payment.

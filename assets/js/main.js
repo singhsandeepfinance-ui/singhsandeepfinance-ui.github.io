@@ -1,6 +1,91 @@
 (function () {
   "use strict";
 
+  /* ---------- Light / dark theme ---------- */
+  var root = document.documentElement;
+  var themeBtn = document.querySelector(".theme-toggle");
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  function currentTheme() {
+    var set = root.getAttribute("data-theme");
+    if (set) return set;
+    return mq && mq.matches ? "dark" : "light";
+  }
+  function labelTheme() {
+    if (!themeBtn) return;
+    var dark = currentTheme() === "dark";
+    themeBtn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+    themeBtn.setAttribute("data-current", dark ? "dark" : "light");
+  }
+  if (themeBtn) {
+    labelTheme();
+    themeBtn.addEventListener("click", function () {
+      var next = currentTheme() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      labelTheme();
+      window.dispatchEvent(new Event("resize")); // let charts redraw in the new colours
+    });
+    if (mq && mq.addEventListener) mq.addEventListener("change", labelTheme);
+  }
+
+  /* ---------- Reading progress + contents list on articles ---------- */
+  var bar = document.querySelector(".read-progress span");
+  var prose = document.querySelector(".post .prose");
+  if (bar && prose) {
+    var onScroll = function () {
+      var rect = prose.getBoundingClientRect();
+      var total = rect.height - window.innerHeight * 0.6;
+      var done = Math.min(Math.max(-rect.top + window.innerHeight * 0.2, 0), Math.max(total, 1));
+      bar.style.transform = "scaleX(" + (done / Math.max(total, 1)) + ")";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+  var toc = document.querySelector(".toc");
+  if (toc && prose) {
+    var heads = prose.querySelectorAll("h2");
+    if (heads.length >= 3) {
+      var list = toc.querySelector("ol");
+      heads.forEach(function (h, i) {
+        if (!h.id) h.id = "section-" + (i + 1) + "-" + h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40);
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = "#" + h.id;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      toc.hidden = false;
+    }
+  }
+
+  /* ---------- Glossary search ---------- */
+  var gInput = document.querySelector("[data-glossary-search]");
+  if (gInput) {
+    var termsEl = document.getElementById("terms");
+    var gEmpty = document.querySelector("[data-glossary-empty]");
+    gInput.addEventListener("input", function () {
+      var q = gInput.value.trim().toLowerCase();
+      var shown = 0, children = Array.prototype.slice.call(termsEl.children);
+      children.forEach(function (node) {
+        if (node.hasAttribute("data-letter")) return;
+        var ok = !q || node.getAttribute("data-search").indexOf(q) !== -1;
+        node.hidden = !ok;
+        if (ok) shown++;
+      });
+      // hide letter headings with no visible terms after them
+      children.forEach(function (node, i) {
+        if (!node.hasAttribute("data-letter")) return;
+        var any = false;
+        for (var j = i + 1; j < children.length && !children[j].hasAttribute("data-letter"); j++) {
+          if (!children[j].hidden) { any = true; break; }
+        }
+        node.hidden = !any;
+      });
+      gEmpty.hidden = shown !== 0;
+    });
+  }
+
   /* ---------- Mobile menu ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("site-nav");

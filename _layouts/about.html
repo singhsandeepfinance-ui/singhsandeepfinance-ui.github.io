@@ -1,0 +1,27 @@
+---
+layout: default
+---
+{% assign c = site.contact %}
+<header class="page-header">
+  <div class="wrap">
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.intro %}<p class="page-intro">{{ page.intro }}</p>{% endif %}
+  </div>
+</header>
+<div class="wrap about-layout">
+  <aside class="profile-card">
+    {% include avatar.html size="large" %}
+    <p class="profile-name">{{ site.author.name }}</p>
+    <p class="profile-role">PhD Scholar, Banking &amp; Financial Markets<br>{{ site.author.department }}<br>{{ site.author.institution }}</p>
+    <ul class="profile-links">
+      {% if c.email != "" %}<li><a href="mailto:{{ c.email }}">Email</a></li>{% endif %}
+      {% if c.linkedin != "" %}<li><a href="{{ c.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+      {% if c.ssrn != "" %}<li><a href="{{ c.ssrn }}" target="_blank" rel="noopener">SSRN</a></li>{% endif %}
+      {% if c.orcid != "" %}<li><a href="{{ c.orcid }}" target="_blank" rel="noopener">ORCID</a></li>{% endif %}
+      {% if c.researchgate != "" %}<li><a href="{{ c.researchgate }}" target="_blank" rel="noopener">ResearchGate</a></li>{% endif %}
+    </ul>
+  </aside>
+  <div class="prose">
+    {{ content }}
+  </div>
+</div>

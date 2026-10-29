@@ -1,0 +1,5 @@
+{% if site.author.photo and site.author.photo != "" %}
+<img class="avatar avatar-{{ include.size | default: 'large' }}" src="{{ site.author.photo | relative_url }}" alt="{{ site.author.name }}" width="240" height="240">
+{% else %}
+<span class="avatar avatar-{{ include.size | default: 'large' }} avatar-initials" aria-hidden="true">{% for t in site.data.topics %}<i style="background:{{ t.color }}"></i>{% endfor %}<b>SS</b></span>
+{% endif %}

@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   {% seo %}
   <meta name="theme-color" content="#15203B">
   <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
@@ -21,6 +22,8 @@
   </main>
   {% include footer.html %}
   <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  {% for s in page.scripts %}{% capture script_path %}/assets/js/{{ s }}.js{% endcapture %}
+  <script src="{{ script_path | relative_url }}" defer></script>{% endfor %}
   {% if page.math %}
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>

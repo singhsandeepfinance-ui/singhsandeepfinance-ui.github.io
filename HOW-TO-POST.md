@@ -6,6 +6,9 @@ You never need to touch the design code. Day to day you only work in three place
 |---|---|
 | Write an article | the `_posts` folder |
 | Add a PDF | the `pdfs` folder **and** `_data/library.yml` |
+| Add a paper to the Research page | `_data/research.yml` |
+| Add a term to the glossary | `_data/glossary.yml` |
+| Add your photo | `assets/img/profile.jpg` **and** `_config.yml` |
 | Change your name, email or links | `_config.yml` |
 
 After any change, **publish** it (see the last section). The live site updates in about 1–2 minutes.
@@ -112,7 +115,42 @@ Keep each PDF under about 25 MB, and the whole site under 1 GB. For very large f
 
 ---
 
-## 3. Publish your changes
+## 3. Add a paper to the Research page
+
+Open `_data/research.yml`. Under `papers:` copy the example block, remove the `#` at the start of each line, and fill it in. Keep the two-space indent:
+
+```yaml
+papers:
+  - title: "Title of your paper"
+    authors: "Sandeep Singh, Co-author Name"
+    venue: "Journal or conference name"
+    year: 2026
+    status: Working paper
+    link: "https://ssrn.com/abstract=0000000"
+    pdf: ""
+```
+
+Until you add one, the page shows buttons to your SSRN and ResearchGate profiles instead.
+You can also edit the four **interests** in the same file.
+
+---
+
+## 4. Add your photo
+
+1. Save a square photo (about 600 × 600 pixels) as `profile.jpg` inside `assets/img`.
+2. In `_config.yml`, change `photo: ""` to `photo: /assets/img/profile.jpg`.
+
+It then replaces the "SS" badge on the home page, About page and under every article.
+
+---
+
+## 5. Add a glossary term
+
+Open `_data/glossary.yml` and copy any block. The page sorts terms A–Z by itself.
+
+---
+
+## 6. Publish your changes
 
 **From VS Code (easiest):**
 
@@ -127,6 +165,6 @@ To see whether the update worked, open the **Actions** tab of your repository. A
 
 ---
 
-## 4. Change site details
+## 7. Change site details
 
 Open `_config.yml` to change your title, tagline, description, email and profile links. Save and publish as above.
