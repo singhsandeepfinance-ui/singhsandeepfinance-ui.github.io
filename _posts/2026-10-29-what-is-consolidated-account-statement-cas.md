@@ -2,6 +2,7 @@
 title: "What is a Consolidated Account Statement (CAS), and why is it in the news?"
 description: "One statement that shows your shares, bonds and mutual funds together. Bank deposits are being added, and insurance may follow. Here is what it contains and how to get yours."
 topic: personal-finance
+published: false
 ---
 
 If you own shares or mutual funds in India, you probably already receive a Consolidated Account Statement, or CAS, every month or every six months. Many investors never open it. In October 2026 it was in the news twice: the RBI said bank deposits will be added to it, and SEBI's chairman said insurance could follow. Here is what the CAS is, and why these changes matter.
