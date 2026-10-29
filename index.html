@@ -1,0 +1,78 @@
+---
+layout: default
+title: Finance, money & research
+body_class: home
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 class="hero-title">Money, markets and research, explained clearly.</h1>
+      <p class="hero-lede">I'm {{ site.author.name }}, a PhD research scholar in finance at IIT (ISM) Dhanbad. I write about saving, investing and how markets really work, and share my notes and papers as free PDFs.</p>
+      <div class="hero-actions">
+        <a class="btn btn-sun" href="{{ '/blog/' | relative_url }}">Read the blog</a>
+        <a class="btn btn-outline-light" href="{{ '/library/' | relative_url }}">Browse the PDF library</a>
+      </div>
+    </div>
+    {% include sip-calculator.html %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Latest writing</h2>
+      <a class="section-link" href="{{ '/blog/' | relative_url }}">All articles</a>
+    </div>
+
+    {% assign lead = site.posts | first %}
+    {% if lead %}
+      {% assign lt = site.data.topics | where: "slug", lead.topic | first %}
+      {% assign lead_words = lead.content | strip_html | number_of_words %}
+      <article class="lead-post" {% if lt %}style="--topic: {{ lt.color }}"{% endif %}>
+        <div class="lead-post-body">
+          {% if lt %}<span class="topic-chip" style="--topic: {{ lt.color }}">{{ lt.name }}</span>{% endif %}
+          <h3 class="lead-post-title"><a href="{{ lead.url | relative_url }}">{{ lead.title }}</a></h3>
+          {% if lead.description %}<p class="lead-post-desc">{{ lead.description }}</p>{% endif %}
+          <p class="lead-post-meta"><time datetime="{{ lead.date | date_to_xmlschema }}">{{ lead.date | date: '%d %B %Y' }}</time><span>{{ lead_words | divided_by: 200 | plus: 1 }} min read</span></p>
+        </div>
+      </article>
+
+      <ul class="post-list">
+        {% for post in site.posts offset: 1 limit: 4 %}
+          {% include post-row.html post=post %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="empty">Your first article will appear here. See HOW-TO-POST.md to write one.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">From the PDF library</h2>
+      <a class="section-link" href="{{ '/library/' | relative_url }}">Full library</a>
+    </div>
+    <ul class="pdf-list">
+      {% for doc in site.data.library limit: 3 %}
+        {% include pdf-row.html doc=doc %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap about-strip">
+    <div>
+      <h2 class="section-title">About me</h2>
+      <p class="about-strip-text">My research looks at how investors build portfolios and how new markets such as crypto behave. On this site I turn that work into plain language that students, professionals and everyday investors can use.</p>
+      <a class="btn btn-ink" href="{{ '/about/' | relative_url }}">Read more about me</a>
+    </div>
+    <dl class="credentials">
+      <div><dt>PhD in Finance</dt><dd>IIT (ISM) Dhanbad, in progress</dd></div>
+      <div><dt>M.Com</dt><dd>Banaras Hindu University</dd></div>
+      <div><dt>B.Com</dt><dd>University of Lucknow</dd></div>
+    </dl>
+  </div>
+</section>

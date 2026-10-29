@@ -1,0 +1,61 @@
+# ─────────────────────────────────────────────────────────────
+#  SITE SETTINGS  —  edit the values below, then save and push.
+#  (Lines starting with # are notes and are ignored.)
+# ─────────────────────────────────────────────────────────────
+
+title: Sandeep Singh
+tagline: Finance, money & research
+description: >-
+  Plain-language writing on personal finance, markets and investing,
+  plus research notes and free PDFs by Sandeep Singh, PhD research
+  scholar in finance at IIT (ISM) Dhanbad.
+
+author:
+  name: Sandeep Singh
+  role: PhD Research Scholar in Finance, IIT (ISM) Dhanbad
+
+# Your web address. Replace YOUR-GITHUB-USERNAME with your GitHub username.
+url: "https://singhsandeepfinance-ui.github.io"
+# Leave baseurl empty if your repository is named YOUR-GITHUB-USERNAME.github.io
+# If your repository has another name (e.g. "finance-site"), use: baseurl: "/finance-site"
+baseurl: ""
+
+# Contact links. Fill in the ones you want to show; leave "" to hide a link.
+contact:
+  email: ""            # e.g. "sandeep@example.com"
+  linkedin: ""         # full link, e.g. "https://www.linkedin.com/in/your-name"
+  google_scholar: ""   # full link to your Google Scholar profile
+  researchgate: ""     # full link
+  orcid: ""            # full link, e.g. "https://orcid.org/0000-0000-0000-0000"
+
+# ─────────────────────────────────────────────────────────────
+#  Technical settings — you normally never need to change these.
+# ─────────────────────────────────────────────────────────────
+lang: en-IN
+timezone: Asia/Kolkata
+permalink: /blog/:year/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  math_engine: mathjax
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+feed:
+  path: feed.xml
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude:
+  - README.md
+  - HOW-TO-POST.md
+  - Gemfile
+  - Gemfile.lock
+  - tools/
+  - vendor/
+  - .vscode/

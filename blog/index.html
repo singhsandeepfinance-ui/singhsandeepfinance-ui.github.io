@@ -1,0 +1,33 @@
+---
+layout: default
+title: Blog
+description: Articles on personal finance, markets, research and fintech by Sandeep Singh.
+---
+<header class="page-header">
+  <div class="wrap">
+    <h1 class="page-title">Blog</h1>
+    <p class="page-intro">Articles on saving, investing, markets and finance research, written for readers who want the reasoning and not just the tips.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="filters" data-filter-list="post-list">
+    <div class="chips" role="group" aria-label="Filter by topic">
+      <button type="button" class="chip" data-filter="all" aria-pressed="true">All topics</button>
+      {% for t in site.data.topics %}
+      <button type="button" class="chip" data-filter="{{ t.slug }}" aria-pressed="false" style="--topic: {{ t.color }}"><span class="swatch"></span>{{ t.name }}</button>
+      {% endfor %}
+    </div>
+    <label class="search">
+      <span class="visually-hidden">Search articles</span>
+      <input type="search" placeholder="Search articles" data-search-input>
+    </label>
+  </div>
+
+  <ul class="post-list" id="post-list" data-attr="topic">
+    {% for post in site.posts %}
+      {% include post-row.html post=post %}
+    {% endfor %}
+  </ul>
+  <p class="empty" data-empty hidden>No articles match yet. Try another topic or clear the search.</p>
+</div>

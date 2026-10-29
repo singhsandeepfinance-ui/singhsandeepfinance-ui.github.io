@@ -1,0 +1,29 @@
+<form class="sip" id="sip" aria-labelledby="sip-heading" onsubmit="return false">
+  <h2 id="sip-heading" class="sip-heading">What a monthly SIP can grow to</h2>
+
+  <div class="sip-field">
+    <label for="sip-amount">Monthly investment</label>
+    <output for="sip-amount" id="sip-amount-out">₹10,000</output>
+    <input id="sip-amount" type="range" min="500" max="100000" step="500" value="10000">
+  </div>
+  <div class="sip-field">
+    <label for="sip-years">Years</label>
+    <output for="sip-years" id="sip-years-out">20 years</output>
+    <input id="sip-years" type="range" min="1" max="40" step="1" value="20">
+  </div>
+  <div class="sip-field">
+    <label for="sip-rate">Expected yearly return</label>
+    <output for="sip-rate" id="sip-rate-out">12%</output>
+    <input id="sip-rate" type="range" min="4" max="18" step="0.5" value="12">
+  </div>
+
+  <div class="sip-result" aria-live="polite">
+    <p class="sip-total"><span id="sip-total">₹99.9 lakh</span></p>
+    <div class="sip-bar" aria-hidden="true"><span id="sip-bar-invested" style="width:24%"></span><span id="sip-bar-growth" style="width:76%"></span></div>
+    <dl class="sip-split">
+      <div><dt><span class="key key-invested"></span>You invest</dt><dd id="sip-invested">₹24.0 lakh</dd></div>
+      <div><dt><span class="key key-growth"></span>Growth</dt><dd id="sip-growth">₹75.9 lakh</dd></div>
+    </dl>
+  </div>
+  <p class="sip-note">An illustration that assumes a steady return. Real returns go up and down and are not guaranteed.</p>
+</form>

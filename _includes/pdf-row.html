@@ -1,0 +1,19 @@
+{% assign doc = include.doc %}
+{% assign t = site.data.topics | where: "slug", doc.topic | first %}
+{% capture doc_path %}/pdfs/{{ doc.file }}{% endcapture %}
+<li class="pdf-row" data-type="{{ doc.type | downcase }}" data-search="{{ doc.title | append: ' ' | append: doc.description | downcase | escape }}">
+  <span class="pdf-icon" aria-hidden="true" {% if t %}style="--topic: {{ t.color }}"{% endif %}><span>PDF</span></span>
+  <div class="pdf-main">
+    <h3 class="pdf-title"><a href="{{ doc_path | relative_url }}" target="_blank" rel="noopener">{{ doc.title }}</a></h3>
+    {% if doc.description %}<p class="pdf-desc">{{ doc.description }}</p>{% endif %}
+    <p class="pdf-meta">
+      <span>{{ doc.type }}</span>
+      {% if doc.pages %}<span>{{ doc.pages }} {% if doc.pages == 1 %}page{% else %}pages{% endif %}</span>{% endif %}
+      {% if doc.date %}<span>{{ doc.date | date: '%b %Y' }}</span>{% endif %}
+    </p>
+  </div>
+  <div class="pdf-actions">
+    <a class="btn btn-quiet" href="{{ doc_path | relative_url }}" target="_blank" rel="noopener">Read online</a>
+    <a class="btn btn-ink" href="{{ doc_path | relative_url }}" download>Download</a>
+  </div>
+</li>

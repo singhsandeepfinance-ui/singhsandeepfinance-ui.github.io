@@ -1,0 +1,24 @@
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <a class="brand brand-footer" href="{{ '/' | relative_url }}">
+        {% include notemark.html %}
+        <span class="brand-text">
+          <span class="brand-name">{{ site.title }}</span>
+          <span class="brand-tag">{{ site.author.role }}</span>
+        </span>
+      </a>
+      <p class="disclaimer">Everything on this site is for education and information only. It is not investment, tax or legal advice. Please talk to a SEBI-registered investment adviser before making investment decisions.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/library/' | relative_url }}">PDF library</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
+    </nav>
+  </div>
+  <div class="wrap footer-base">
+    <p>© {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+  </div>
+</footer>

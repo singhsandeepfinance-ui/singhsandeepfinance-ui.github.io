@@ -1,0 +1,64 @@
+---
+layout: default
+---
+{% assign t = site.data.topics | where: "slug", page.topic | first %}
+{% assign words = content | strip_html | number_of_words %}
+{% assign minutes = words | divided_by: 200 | plus: 1 %}
+<article class="post" {% if t %}style="--topic: {{ t.color }}"{% endif %}>
+  <header class="post-header">
+    <div class="wrap wrap-read">
+      {% if t %}<a class="topic-chip" style="--topic: {{ t.color }}" href="{{ '/blog/' | relative_url }}?topic={{ t.slug }}">{{ t.name }}</a>{% endif %}
+      <h1 class="post-title">{{ page.title }}</h1>
+      {% if page.description %}<p class="post-dek">{{ page.description }}</p>{% endif %}
+      <p class="post-meta">
+        <span>{{ page.author | default: site.author.name }}</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d %B %Y' }}</time>
+        <span>{{ minutes }} min read</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap wrap-read">
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    {% if page.pdf %}
+    {% capture pdf_path %}/pdfs/{{ page.pdf }}{% endcapture %}
+    <aside class="post-pdf">
+      <span class="pdf-icon" aria-hidden="true"><span>PDF</span></span>
+      <div>
+        <p class="post-pdf-title">{{ page.pdf_title | default: 'Download this as a PDF' }}</p>
+        <p class="post-pdf-actions">
+          <a class="btn btn-quiet" href="{{ pdf_path | relative_url }}" target="_blank" rel="noopener">Read online</a>
+          <a class="btn btn-ink" href="{{ pdf_path | relative_url }}" download>Download</a>
+        </p>
+      </div>
+    </aside>
+    {% endif %}
+
+    <aside class="post-note">
+      <p>This article is for education only and is not investment advice. Figures are illustrations, and past returns do not guarantee future returns.</p>
+    </aside>
+
+    <section class="share" aria-label="Share this article">
+      <p class="share-label">Share this article</p>
+      {% capture share_url %}{{ page.url | absolute_url }}{% endcapture %}
+      <div class="share-links">
+        <a href="https://wa.me/?text={{ page.title | append: ' ' | append: share_url | url_encode }}" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url | url_encode }}" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/intent/post?text={{ page.title | url_encode }}&amp;url={{ share_url | url_encode }}" target="_blank" rel="noopener">X</a>
+        <button type="button" class="copy-link" data-url="{{ share_url }}">Copy link</button>
+      </div>
+    </section>
+
+    <nav class="post-pager" aria-label="More articles">
+      {% if page.previous %}
+      <a class="pager-prev" href="{{ page.previous.url | relative_url }}"><span>Older</span>{{ page.previous.title }}</a>
+      {% endif %}
+      {% if page.next %}
+      <a class="pager-next" href="{{ page.next.url | relative_url }}"><span>Newer</span>{{ page.next.title }}</a>
+      {% endif %}
+    </nav>
+  </div>
+</article>

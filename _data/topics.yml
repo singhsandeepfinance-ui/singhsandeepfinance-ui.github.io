@@ -1,0 +1,21 @@
+# Blog topics. Each post picks one with  topic: <slug>  in its front matter.
+# Colours follow Indian banknotes: ₹100 lavender, ₹200 yellow, ₹500 stone, ₹50 blue.
+- slug: personal-finance
+  name: Personal finance
+  color: "#8F7FD6"
+  description: Saving, SIPs, budgeting, insurance and taxes.
+
+- slug: markets
+  name: Markets & investing
+  color: "#F2B705"
+  description: Stocks, mutual funds, valuation and how markets behave.
+
+- slug: research
+  name: Research notes
+  color: "#7E8F63"
+  description: Ideas from finance research, explained without the jargon.
+
+- slug: fintech
+  name: Crypto & fintech
+  color: "#2FB4C8"
+  description: Digital assets, payments and technology in finance.
